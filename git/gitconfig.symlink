@@ -1,0 +1,28 @@
+[hub]
+        protocol = https
+[user]
+	name = Joshua McIntosh
+[alias]
+        co = checkout
+        count   = !git shortlog -sn
+[color]
+        diff = auto
+        status = auto
+        branch = auto
+        ui = true
+[core]
+        excludesfile = ~/.gitignore
+        editor = vim
+[apply]
+        whitespace = nowarn
+[mergetool]
+        keepBackup = false
+[difftool]
+        prompt = false
+[help]
+        autocorrect = 1
+
+
+[github]
+	user = jjosh-mcintosh
+

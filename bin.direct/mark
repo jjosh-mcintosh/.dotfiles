@@ -1,0 +1,274 @@
+#!/bin/bash
+
+# forked from "pass" by Jason A. Donenfeld <Jason@zx2c4.com>.
+# "pass" is (C) Copyright 2012 Jason A. Donenfeld <Jason@zx2c4.com>. 
+# This is released under the GPLv2+. Please see COPYING for more information.
+#
+# TODO: straighten out 'clip' to clip bookmark urls to the clipboard
+# TODO: 
+#
+# NOTE: to store url separate from filename, store url on first line
+# (or use a sed for /http/ or something).
+
+umask 077
+
+PREFIX="$HOME/.bmarks"
+GIT="$PREFIX/.git"
+
+export GIT_DIR="$GIT"
+export GIT_WORK_TREE="$PREFIX"
+
+usage() {
+	cat <<_EOF
+Bookmarks
+by Joshua McIntosh,
+   joshua.mcintosh@outlook.com
+   (inspired by Jason Donenfeld,
+   Jason@zx2c4.com)
+
+Usage:
+    $program init gpg-id
+        Initialize new bookmark storage.
+    $program [ls] [subfolder]
+        List bookmarks.
+    $program [show] [--clip,-c] bookmark-name
+        Show existing bookmarks and optionally put it on the clipboard.
+    $program (insert | ins) [--multiline,-m] bookmark-name
+        Insert new bookmark. optionally, it may include a note.
+	$program (edit | ed) bookmark-name
+		Edit existing bookmark.
+    $program rm bookmark-name 
+        Remove existing bookmark.
+    $program push
+        If the bookmark store is a git repository, push the latest changes.
+    $program pull
+        If the bookmark store is a git repository, pull the latest changes.
+    $program git git-command-args...
+        If the bookmark store is a git repository, execute a git command
+	specified by git-command-args.
+    $program help
+        Show this text.
+_EOF
+}
+isCommand() {
+	case "$1" in
+		init|ls|list|show|edit|ed|insert|ins|remove|rm|delete|push|pull|git|help) return 0 ;;
+		*) return 1 ;;
+	esac
+}
+clip() {
+	# This base64 business is a disgusting hack to deal with newline inconsistancies
+	# in shell. There must be a better way to deal with this, but because I'm a dolt,
+	# we're going with this for now.
+
+	before="$(xclip -o -selection clipboard | base64)"
+	echo -n "$1" | xclip -selection clipboard
+	(
+		sleep 45
+		now="$(xclip -o -selection clipboard | base64)"
+		if [[ $now != $(echo -n "$1" | base64) ]]; then
+			before="$now"
+		fi
+		# It might be nice to programatically check to see if klipper exists,
+		# as well as checking for other common clipboard managers. But for now,
+		# this works fine. Clipboard managers frequently write their history
+		# out in plaintext, so we axe it here.
+		qdbus org.kde.klipper /klipper org.kde.klipper.klipper.clearClipboardHistory >/dev/null 2>&1
+		echo "$before" | base64 -d | xclip -selection clipboard
+	) & disown
+	echo "Copied $2 to clipboard. Will clear in 45 seconds."
+}
+program="$(basename "$0")"
+command="$1"
+if isCommand "$command"; then
+	shift
+else
+	command="show"
+fi
+
+case "$command" in
+	init)
+		if ! [[ -d $PREFIX ]]; then
+			mkdir -v -p "$PREFIX"
+			echo "The folder has been created."
+			exit 0
+		else
+			echo "The folder already exists."
+			exit 1
+		fi
+		;;
+	help)
+		usage
+		exit 0
+		;;
+esac
+
+if ! [[ -d $PREFIX ]]; then
+	echo "You must run:"
+	echo "    $program init"
+	echo "before you may use the bookmark store."
+	echo
+	usage
+	exit 1
+fi
+
+case "$command" in
+	show|ls|list)
+		clip=0
+		browse=0
+		while true; do
+			if [[ $1 == "--clip" || $1 == "-c" ]]; then
+				clip=1
+				shift
+			elif [[ $1 == "--browse" || $1 == "-b" ]]; then
+				browse=1
+				shift
+			else
+				break
+			fi
+		done
+		path="$1"
+		if [[ -d $PREFIX/$path ]]; then
+			if [[ $path == "" ]]; then
+				echo "Bookmark Store"
+			else
+				if [[ $browse -eq 1 ]]; then
+					for file in $(find $PREFIX/$path)
+					do
+							for url in $(awk '/http/{print $0}' $file 2>/dev/null)
+							do
+									$BROWSER $url >/dev/null 2>&1 &
+							done
+					done
+					exit 0
+				else
+					echo $path
+				fi
+			fi
+			tree --noreport "$PREFIX/$path" | tail -n +2
+		else
+			bmark="$PREFIX/$path"
+			if ! [[ -f $bmark ]]; then
+				echo "$bmark is not in the bookmark store."
+				exit 1
+			fi
+			if [ $clip -eq 1 ]; then
+				clip "$(cat "$bmark")" "$path"
+			else
+				if [ $(wc -l $bmark |cut -d' ' -f1 ) -eq 0 ]; then
+						if [ $browse -eq 1 ]; then
+								$BROWSER "http://$(basename $path)" >/dev/null 2>&1 &
+						fi
+						exec echo "$(basename $path)"
+				else
+					urls=$(awk '/http/{ print $0 }' $PREFIX/$path)
+					if [ -n $urls -a $browse -eq 1 ]; then
+						for url in $urls
+						do
+								$BROWSER $url >/dev/null 2>&1 &
+						done
+						exit 0
+					fi
+					echo -e "$(basename $path)\n----" &&
+					exec cat "$bmark"
+				fi
+			fi
+		fi
+		;;
+	insert|ins)
+		ml=0
+		straight=0
+		while true; do
+			if [[ $1 == "--multiline" || $1 == "-m" ]]; then
+				ml=1
+				shift
+			elif [[ $1 == "-n" || $1 == "--straight" ]]; then
+				straight=1
+				shift
+			else
+				break
+			fi
+		done
+		if [[ $# -ne 1 ]]; then
+			echo "Usage: $program $command [--multiline,-m] name"
+			exit 1
+		fi
+		path="$1"
+		mkdir -p -v "$PREFIX/$(dirname "$path")"
+
+		bmark="$PREFIX/$path"
+		if [[ $ml -eq 1 ]]; then
+			echo "Enter contents of $path (url first) and press Ctrl+D when finished: "
+			echo
+			cat > "$bmark"
+		elif [[ $straight -eq 1 ]]; then
+				echo "Storing url $bmark..."
+				echo "http://$(basename $path)" > $PREFIX/$path
+				echo "done."
+				exit 0
+		else
+			echo -n "enter URL for file for $path: "
+			echo "$(head -n 1)" > $PREFIX/$path
+			echo "done."
+		fi
+		if [[ -d $GIT ]]; then
+			git add "$bmark"
+			git commit -m "Added given bmark for $path to store."
+		fi
+		;;
+	edit|ed)
+		path="$1"
+		bmark="$PREFIX/$path"
+		fprint=`md5sum $bmark |awk '{ print $1 }'`
+
+		$EDITOR $bmark;
+
+		nfprint=`md5sum $bmark |awk '{ print $1 }'`
+
+		if [[ $fprint != $nfprint ]] &&[[ -d $GIT ]]; then
+			git add "$bmark"
+			git commit -m "Added given bmark for $path to store."
+		else
+			echo "File not changed."
+		fi
+
+		;;
+	delete|rm|remove)
+		if [[ $# -ne 1 ]]; then
+			echo "Usage: $program $command bmark-name"
+			exit
+		fi
+		path="$1"
+		bmark="$PREFIX/$path"
+		if ! [[ -f $bmark ]]; then
+			echo "$path is not in the bookmark store."
+			exit 1
+		fi
+		rm -i -v "$bmark"
+		if [[ -d $GIT ]] && ! [[ -f $bmark ]]; then
+			git rm -f "$bmark"
+			git commit -m "Removed $path from store."
+		fi
+		;;
+	push|pull)
+		if [[ -d $GIT ]]; then
+			exec git $command $@
+		else
+			echo "Error: the password store is not a git repository."
+			exit 1
+		fi
+		;;
+	git)
+		if [[ $1 == "init" ]] || [[ -d $GIT ]]; then
+			exec git $@
+		else
+			echo "Error: the password store is not a git repository."
+			exit 1
+		fi
+		;;
+	*)
+		usage
+		exit 1
+		;;
+esac
+exit 0

@@ -1,0 +1,11 @@
+directory: ~/Music
+library: ~/.local/share/musiclibrary.blb
+
+import:
+  move: yes
+
+paths:
+  default: $genre/$albumartist/$album%aunique{}/%if{$multidisc,Disc $disc/}$track $title
+
+pathfields:
+  multidisc: 1 if disctotal > 1 else 0

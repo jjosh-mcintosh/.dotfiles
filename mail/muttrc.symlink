@@ -1,0 +1,9 @@
+source ~/.mutt/settings/general.mutt
+source ~/.mutt/settings/accounts.mutt
+source ~/.mutt/settings/abook.mutt
+#
+#-------------------------------------
+# Mail-check preferences
+#-------------------------------------
+#
+# EOF

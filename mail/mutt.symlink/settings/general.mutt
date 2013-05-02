@@ -1,0 +1,3 @@
+set timeout=60	#Check for mail every minute
+set mail_check=5
+

@@ -1,0 +1,91 @@
+# enable color support of ls and also add handy aliases
+if [ -x /bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    alias dir='dir --color=auto'
+    alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+# some more ls aliases
+alias ll='ls -alF'
+alias la='ls -A'
+
+alias grep='grep --color=auto'
+
+#[ ! "$UID" = "0" ] && archbey -c white
+#[  "$UID" = "0" ] && archbey -c red
+
+if [ -f $HOME/.bash_aliases ]; then
+		. $HOME/.bash_aliases;
+fi
+
+__has_parent_dir () {
+	# Utility function so we can test for things like .git/.hg without firing
+	# up a separate process
+	test -d "$1" && return 0;
+
+	current=".";
+	while [ ! "$current" -ef "$current/.." ] ;
+	do 
+		if [ -d "$current/$1" ] ;
+		then
+			return 0;
+		fi
+		current="$current/..";
+	done
+
+	return 1;
+}
+
+__vcs_name() {
+			if [ -d .svn ]; then 
+				echo " [svn]"; 
+			elif [ -d RCS ]; 	then 
+				echo " [RCS]";  
+			elif __has_parent_dir ".git" ; then
+				echo "$(__git_ps1 ' [git %s]')";
+			elif __has_parent_dir ".hg"; then
+				echo " [hg $(hg branch 2>/dev/null)]"
+			fi
+}
+
+if_playing() {
+		if (mpc -f '' 2>&1 |grep playing >/dev/null)
+		then
+				printf "──(\e[01;33m";
+				_if_playing;
+				printf "\e[01;31m)";
+		fi
+}
+
+# for tmux: export 256color
+[ -n "$TMUX" ] && export TERM=screen-256color
+
+PS1='\n\[\e[01;31m\]\[\016\]l\[\017\]──[\t]──[\[\e[01;35m\u\e[01;31m\]]──[\[\e[00;37m\]${HOSTNAME%%.*}\[\e[01;31m\]]\[\e[32;29m\]:\[\e[22;29m\]$(__vcs_name) \w \$\[\e[01;31m\]\n\[\e[01;31m\]\[\016\]m\[\017\]─>>\[\e[0m\] '
+
+
+#colour
+
+export LESS_TERMCAP_mb=$'\E[01;31m'
+
+export LESS_TERMCAP_md=$'\E[01;37m'
+
+export LESS_TERMCAP_me=$'\E[0m'
+
+export LESS_TERMCAP_se=$'\E[0m'
+
+export LESS_TERMCAP_so=$'\E[01;44;33m'
+
+export LESS_TERMCAP_ue=$'\E[0m'
+
+export LESS_TERMCAP_us=$'\E[01;32m'
+
+source /usr/share/git/git-prompt.sh
+
+man2pdf () { man -w $1 && man -t $1 | ps2pdf - $1.pdf; }
+[[ -s "/home/joshua/.rvm/scripts/rvm" ]] && source "/home/joshua/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+[[ -r "/home/joshua/.rvm/scripts/completion" ]] && . /home/joshua/.rvm/scripts/completion

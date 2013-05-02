@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+
+set -e
+
+netw=$1
+
+
+
+ask() {
+netw=$( printf "Facebook\nTwitter"|zenity   --list --text="Which social network will you use?" \
+                                            --column="social network" \
+                                            ) 
+}
+
+gstatus () {
+    status=$(zenity --entry --text "$text" --title $netw)
+}
+
+
+fbstat() {
+        text="What are you doing?";
+        gstatus;
+        fbcmd status "$status" && echo "`date` $status">>/var/log/fbcmd.log ;
+}
+
+twitstat(){
+        text="What's Happening?";
+        gstatus;
+        ttytter -status="$status";
+}
+
+cycle() {
+case $netw in
+        
+    facebook|Facebook|fb)
+        fbstat;
+        ;;
+
+    twitter|Twitter|t|tw)
+        twitstat;
+        ;;
+
+    ask|*)
+        ask;
+        cycle;
+        ;;
+esac
+
+}
+
+cycle;

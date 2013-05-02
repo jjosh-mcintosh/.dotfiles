@@ -1,0 +1,42 @@
+if [ -d "$HOME/bin" ]
+then
+		export PATH="$HOME/bin:$PATH";
+fi
+
+if pidof mpd 2>&1 >/dev/null
+then
+	noop 2>/dev/null;
+else
+		mpd .config/mpd/mpd.conf 2>/dev/null &
+fi
+
+export PATH="/home/tex/texlive/2010/bin/x86_64-linux:/usr/local/games:/opt/go/bin:$PATH"
+export MANPATH="/home/tex/texlive/2010/texmf/doc/man:$HOME/.local/share/man:$MANPATH"
+export INFOPATH="/home/tex/texlive/2010/texmf/doc/info:$INFOPATH"
+
+export EDITOR="vim"
+export BROWSER="surf"
+export TERMINAL="urxvtc"
+export GOPATH="$HOME/build/go/";
+export WORKLOGDIR="$HOME/.worklog";
+
+
+if [ $SHELL = 'bash' ] && [ -f $HOME/.bashrc ]; then
+		. ~/.bashrc;
+fi
+
+if [ $SHELL = 'bash' ] && [ -d /etc/bash_completion.d ]; then
+		for file in $(ls /etc/bash_completion.d)
+		do
+				. /etc/bash_completion.d/$file;
+		done
+fi
+
+#[[ $(fgconsole) = 1 ]] && exec startx -- vt1
+pidof X >/dev/null
+RETVAL=$?
+if [[ $RETVAL -ne 0 ]] && [[ $(tty) = "/dev/tty1" ]]
+then
+		exec xinit monster
+fi
+

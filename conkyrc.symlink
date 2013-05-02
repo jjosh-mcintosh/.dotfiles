@@ -1,0 +1,51 @@
+# For use with [dzen](https://github.com/robm/dzen)
+use_xft yes
+xftfont monospace:size=9
+xftalpha 1
+update_interval 1.0
+total_run_times 0
+own_window yes
+own_window_transparent yes
+own_window_type desktop
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+own_window_colour black
+double_buffer yes
+minimum_size 1 1
+maximum_width 240
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+default_color gray
+default_shade_color 000000
+default_outline_color d9d7d6
+alignment tl
+#gap_x 12
+#gap_y 12
+no_buffers yes
+uppercase no
+cpu_avg_samples 2
+override_utf8_locale no
+color1 red
+color2 gray
+out_to_console true
+out_to_x false
+
+TEXT
+^i(/usr/share/icons/stlarch_icons/mem1.xbm) $mem | \
+^i(/usr/share/icons/stlarch_icons/wireless1.xbm) ${wireless_essid wlan0} : \
+${wireless_link_qual_perc wlan0} | \
+\
+${if_match "$acpiacadapter" == "on-line"}^bg()^fg(green)\
+^i(/usr/share/icons/stlarch_icons/ac9.xbm)${else}\
+${if_match $battery_percent < 30}^bg(red)^fg(yellow)\
+^i(/usr/share/icons/stlarch_icons/batt5empty.xbm)${else}\
+${if_match $battery_percent > 60}\
+^bg()^fg()^i(/usr/share/icons/stlarch_icons/batt5full.xbm)${else}\
+^bg()^fg()^i(/usr/share/icons/stlarch_icons/batt5half.xbm)\
+${endif}${endif}${endif} ${battery_percent}%\
+${if_match "" != "$battery_time"}, ${battery_time}${endif}^fg()^bg() | \
+\
+${time %D %R} \
+
+

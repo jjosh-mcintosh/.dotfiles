@@ -1,0 +1,66 @@
+###################################################
+# MULTIPLE ACCOUNT SETUP                          #
+###################################################
+
+# Set passwords
+# I use [password-store][1] for my passwords. Because of this, I can open them
+# with my gpg key, and process them.
+#
+# TODO: Technically I'm sure that this is open to reading the decrypted file, so
+# I'd like to look into other ways to read from the file (via stream?) that 
+# doesn't involve a temporary file.
+#
+# ----
+# [1]: http://git.zx2c4.com/password-store/about/ "Password-Store"
+#
+set my_gmtmp=`gpg -o ~/.secret/.tmp -d ~/.password-store/email/gmail.gpg`
+set my_gmpw=`cut -c 1-10 ~/.secret/.tmp`
+set my_gmuser=`awk -F: '/user/{ print $2 }' ~/.secret/.tmp`
+set my_gmfolder=`awk -F: '/folder/{ print $2 }' ~/.secret/.tmp`
+set my_del=`rm ~/.secret/.tmp`
+
+set my_outtmp=`gpg -o ~/.secret/.tmp -d ~/.password-store/email/outlook.gpg`
+set my_outpw=`cut -c 1-10 ~/.secret/.tmp`
+set my_del=`rm ~/.secret/.tmp`
+
+# Account hooks
+account-hook . 'unset imap_user; unset imap_pass; unset tunnel'
+account-hook "imaps://$my_gmfolder/" "\
+ 			 set imap_user = $my_gmuser ; \
+			 set imap_pass = $my_gmpw "
+
+
+set folder="imaps://$my_gmfolder/"
+# TODO: Add more/tweak mailboxes
+mailboxes =INBOX =[Gmail]/Drafts =[Gmail]/'Sent Mail' =[Gmail]/Spam
+folder-hook     'imaps://$my_gmfolder' " \
+		set 	folder=imaps://$my_gmfolder/ \
+				header_cache=~/.mutt/cache/headers \
+				spoolfile=+INBOX \
+				postponed=+[Gmail]/Drafts \
+				record=+[Gmail]/'Sent Mail' \
+				smtp_url=smtps://${my_gmuser}@smtp.gmail.com \
+				smtp_pass=$my_gmpw \
+				signature=~/.mutt/gmail.sig \
+				from='Joshua McIntosh <'$my_gmuser'@gmail.com> ' \
+				realname='Joshua McIntosh' \
+				sort='reverse-threads' "
+
+#  set folder="imaps://EMAIL_SERVER/"
+#  mailboxes =INBOX
+#  folder-hook 'imaps://EMAIL_SERVER' " \
+#  		set 	folder=imaps://EMAIL_SERVER/ \
+#  				spoolfile = +INBOX \
+#  				smtp_url=smtps://SMTP_SERVER \
+#  				smtp_pass=$my_outpw \
+#  				signature=~/.mutt/outlook.sig \
+#  				from='Joshua McIntosh <EMAIL> ' \
+#  				realname='Joshua McIntosh' "
+# 
+#
+#-------------------------------------
+# Macros to make life easier
+#-------------------------------------
+macro index <esc>1 "y1<return><return>" # ESC+1 takes to first INBOX
+macro index <esc>2 "y5<return><return>" # ESC+2 takes to the second
+

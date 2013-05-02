@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+_now=$(date +%F)
+vim "$_now-$1.md.txt"

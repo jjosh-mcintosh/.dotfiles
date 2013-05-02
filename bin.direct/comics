@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+TABBED=$(tabbed -d 2>/dev/null)
+
+# $HOME/.bmarks is a directory with subdir branches and file nodes where the
+# first line is a url. And I dont know if it'll speed up execution or anything,
+# but I'll eliminate blank lines for good measure :)
+# 
+for url in $( head -1 ~/.bmarks/comics/* |grep -v = |sed -e '/^$/d')
+do
+    surf -e $TABBED $url >/dev/null 2>&1 &
+done
+

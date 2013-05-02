@@ -1,0 +1,6 @@
+#!/bin/bash
+
+CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/dmenu/dmenu.conf"
+[ -f "$CONFIG" ] && . "$CONFIG"
+
+cat $HOME/.config/browsers.txt |dmenu $DMENU_OPTS "$@" |${SHELL:-"/bin/sh"} &

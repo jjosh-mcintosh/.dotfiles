@@ -1,0 +1,56 @@
+#!/usr/bin/env bash
+
+setup () {
+        xrdb -merge ~/.Xdefaults
+        xset +fp /usr/share/fonts/local &
+        xset +fp /usr/share/fonts/TTF/ &
+        xset fp rehash &
+        dunst &
+        dropbox start &
+		tmux set-environment -g DISPLAY $DISPLAY &
+		urxvtd -f -o -q &
+        xcompmgr -C -c &
+		. /$HOME/.fehbg;
+}
+
+case $1 in
+	
+	openbox-session|Openbox)
+		setup &
+		dbus-launch --exit-with-session openbox-session;
+		;;
+
+    wmii|Wmii|WMII)
+        setup &
+        dbus-launch --exit-with-session wmii;
+        ;;
+
+    rio|plan9)
+        setup &
+        xautolock -time 15 -locker slock &
+        dbus-launch --exit-with-session rio -term urxvtc -virtuals 4;
+        ;;
+
+    herbstluftwm|hc)
+        setup &
+        xautolock -time 15 -locker slock &
+        dbus-launch --exit-with-session herbstluftwm;
+        ;;
+
+	dwm|Dwm)
+		setup &
+        (bash -c 'conky | while read; do xsetroot -name "$REPLY"; done') &
+        xautolock -time 15 -locker slock &
+        xbindkeys &
+		dbus-launch --exit-with-session dwm;
+		;;
+
+    monsterwm|monster|*)
+        setup &
+        xautolock -time 15 -locker slock &
+        xbindkeys &
+        dbus-launch --exit-with-session monster_and_bar.sh;
+        ;;
+
+
+esac
