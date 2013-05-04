@@ -1,6 +1,8 @@
 directory: ~/Music
 library: ~/.local/share/musiclibrary.blb
 
+plugins: chroma
+
 import:
   move: yes
 
