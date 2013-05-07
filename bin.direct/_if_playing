@@ -1,5 +1,5 @@
 #!/bin/bash
 if (mpc -f '' 2>&1 |grep playing >/dev/null)
 then
-	printf "$(mpc -f "%artist% - %title%" current)";
+	printf " $(mpc -f "%artist% - %title%" current) ";
 fi
