@@ -21,3 +21,13 @@ before I'll be happy with it.
 * [markdown](http://daringfireball.net/projects/markdown/)
 * The colors script came from the Archlinux forums, via lolilolicon
 * [tabbed](http://tools.suckless.org/tabbed/)
+* [dzen-\* and config.sh (for menubar)](http://github.com/windelicato/dotfiles.git)
+* The monster\_and\_bar.sh script was adapted from
+  [this](https://gist.github.com/c00kiemon5ter/1905427#file-monsterwm2dzen_with-titles_dwm-like)
+  script, shown [here](https://gist.github.com/c00kiemon5ter/1905427).
+* [grub-playtune](http://ubuntuforums.org/showthread.php?t=1739495)
+
+### conkyrc credit
+The statusbars and popups I use are adapted from
+[this fine, fine desktop](http://www.reddit.com/r/unixporn/comments/y67t2/archwmfs2the_whole_shebang_with_dzen2_popups_gif/).
+Granted, I'm using MonsterWM myself.

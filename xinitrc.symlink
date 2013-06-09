@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 setup () {
-        xrdb -merge ~/.Xdefaults
+        start-pulseaudio-x11 &
+        xrdb -merge ~/.Xdefaults &
         xset +fp /usr/share/fonts/local &
         xset +fp /usr/share/fonts/TTF/ &
         xset fp rehash &

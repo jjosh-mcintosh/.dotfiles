@@ -30,22 +30,27 @@ color1 red
 color2 gray
 out_to_console true
 out_to_x false
+short_units yes
 
 TEXT
-^i(/usr/share/icons/stlarch_icons/mem1.xbm) $mem | \
-^i(/usr/share/icons/stlarch_icons/wireless1.xbm) ${wireless_essid wlan0} : \
-${wireless_link_qual_perc wlan0} | \
+^ca(1,/home/joshua/bin/dzen_hardware.sh)  \
+^fg(\#91BA0D)^i(/usr/share/icons/stlarch_icons/mem1.xbm)^fg() $mem   ^ca()\
+^fg(\#91BA0D)^i(/usr/share/icons/stlarch_icons/wireless1.xbm)^fg() \
+${wireless_essid wlan0} : \
+${wireless_link_qual_perc wlan0}  \
 \
-${if_match "$acpiacadapter" == "on-line"}^bg()^fg(green)\
-^i(/usr/share/icons/stlarch_icons/ac9.xbm)${else}\
+^ca(1,/home/joshua/bin/dzen_battery.sh)^fg(\#91BA0D)\
+${if_match "$acpiacadapter" == "on-line"}\
+^i(/usr/share/icons/stlarch_icons/ac9.xbm) ${else}\
 ${if_match $battery_percent < 30}^bg(red)^fg(yellow)\
-^i(/usr/share/icons/stlarch_icons/batt5empty.xbm)${else}\
+ ^i(/usr/share/icons/stlarch_icons/batt5empty.xbm) ${else}\
 ${if_match $battery_percent > 60}\
-^bg()^fg()^i(/usr/share/icons/stlarch_icons/batt5full.xbm)${else}\
-^bg()^fg()^i(/usr/share/icons/stlarch_icons/batt5half.xbm)\
-${endif}${endif}${endif} ${battery_percent}%\
-${if_match "" != "$battery_time"}, ${battery_time}${endif}^fg()^bg() | \
+ ^i(/usr/share/icons/stlarch_icons/batt5full.xbm)^fg(\#D3D3D3) ${else}\
+ ^i(/usr/share/icons/stlarch_icons/batt5half.xbm)^fg(\#D3D3D3) \
+${endif}${endif}${endif}\
+${battery_percent}%  ^ca()^fg()^bg()\
+^ca(1,/home/joshua/bin/dzen_vol.sh)  \
+^fg(\#91BA0D)^i(/usr/share/icons/stlarch_icons/vol1.xbm) ^fg(\#D3D3D3)${exec amixer get Master| egrep -o "[0-9]+%" | head -1 | egrep -o "[0-9]*"}%   ^ca()\
 \
-${time %D %R} \
-
+^ca(1,/home/joshua/bin/dzen_date.sh)${time %D %R}  ^ca()\
 
