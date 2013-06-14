@@ -1,4 +1,5 @@
 # For use with [dzen](https://github.com/robm/dzen)
+# vim: ft=conky :
 use_xft yes
 xftfont monospace:size=9
 xftalpha 1
@@ -34,7 +35,8 @@ short_units yes
 
 TEXT
 ^ca(1,/home/joshua/bin/dzen_hardware.sh)  \
-^fg(\#91BA0D)^i(/usr/share/icons/stlarch_icons/mem1.xbm)^fg() $mem   ^ca()\
+${if_match ${cpu cpu0} > 80}^fg(red)^bg(red)${else}\
+^fg(\#91BA0D)${endif}^i(/usr/share/icons/stlarch_icons/mem1.xbm)^fg() $mem  ^bg() ^ca()\
 ^fg(\#91BA0D)^i(/usr/share/icons/stlarch_icons/wireless1.xbm)^fg() \
 ${wireless_essid wlan0} : \
 ${wireless_link_qual_perc wlan0}  \

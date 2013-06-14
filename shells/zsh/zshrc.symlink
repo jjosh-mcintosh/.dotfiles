@@ -26,7 +26,7 @@ export ZSH_THEME="juanghurtado"
 source $HOME/.rvm/scripts/rvm
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(archlinux bundler cloudapp extract gem git git-flow golang gpg-agent node npm powder rake ruby rvm ssh-agent svn systemd themes vagrant)
+plugins=(bundler cloudapp extract gem git git-flow golang gpg-agent node npm powder rake ruby rvm ssh-agent svn systemd themes vagrant)
 
 # source every .zsh file in this rep
 # JM - source these before oh-my-zsh
