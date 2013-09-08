@@ -77,7 +77,59 @@ urxvt*font: xft:Inconsolata for Powerline:Medium:pixelsize=12:antialias=true:hin
 !!urxvt*boldFont:         -*-courier new-medium-r-*-*-19-*-*-*-*-*-iso8859-2
 !!urxvt*italicFont:       -*-courier new-medium-r-*-*-19-*-*-*-*-*-iso8859-2
 !!urxvt*boldItalicFont:   -*-courier new-medium-r-*-*-19-*-*-*-*-*-iso8859-2
+URxvt.iso14755: false
+URxvt.iso14755_52: false
+rxvt*termName:rxvt-unicode-256color
+rxvt*saveLines: 5000
+rxvt*background: #212021
+!rxvt*mouseWheelScrollPage: false
+
+!! dont use with tinting
+!!rxvt*shading: 50 
+
+!!rxvt*transparent: true
+!rxvt*inheritPixmap: true
+!rxvt*fading: 40
+rxvt*scrollBar: false
+!rxvt*borderLess: true
+!rxvt*colorBDMode: on
+!rxvt*colorULMode: on
+!rxvt*blurRadius: 125
+rxvt*urgentOnBell: true
+rxvt.urlLauncher: firefox
+rxvt*matcher.Button: 3
+rxvt*modifier: alt
+rxvt*cutchars: `"()'*<>[]{|}
 !
+!### Compiz options ###
+!#rxvt*depth: 32
+!#rxvt*background: rgba:0000/0000/0000/dddd
+!
+!## Tint Color ###
+!rxvt*tintColor: Blue
+!rxvt*tintColor: lightblue
+!rxvt*tintColor: Deepskyblue
+!rxvt*tintColor: lightgreen
+!rxvt*tintColor: Lightseagreen
+!rxvt*tintColor: Mediumblue
+!rxvt*tintColor: White
+!
+!### Fonts ###
+!!rxvt*font: xft:Bitstream Vera Sans mono:size=14
+!!rxvt*font: xft:terminus:pixelsize=20:bold
+!!rxvt*font: xft:DejaVu Sans Mono:pixelsize=18
+rxvt*font: xft:Inconsolata for Powerline:Medium:pixelsize=12:antialias=true:hinting=true
+!!rxvt*font: -xos4-terminus-medium-r-normal-*-19-*-*-*-*-*-*-*
+!!rxvt*font: -*-ohsnap-medium-r-*-*-12-*-*-*-*-*-*-*
+!!rxvt*font: -*-dina-medium-r-*-*-17-*-*-*-*-*-*-*
+!!rxvt*font:             -*-fixed-medium-r-*-*-18-*-*-*-*-*-iso8859-*
+!!rxvt*boldFont:         -*-fixed-medium-r-*-*-18-*-*-*-*-*-iso8859-*
+!!rxvt*italicFont:       -*-fixed-medium-r-*-*-18-*-*-*-*-*-iso8859-*
+!!rxvt*boldItalicFont:   -*-fixed-medium-r-*-*-18-*-*-*-*-*-iso8859-*
+!!rxvt*font:             -*-courier new-medium-r-*-*-19-*-*-*-*-*-iso8859-2
+!!rxvt*boldFont:         -*-courier new-medium-r-*-*-19-*-*-*-*-*-iso8859-2
+!!rxvt*italicFont:       -*-courier new-medium-r-*-*-19-*-*-*-*-*-iso8859-2
+!!rxvt*boldItalicFont:   -*-courier new-medium-r-*-*-19-*-*-*-*-*-iso8859-2!
 dzen2.foreground: white
 dzen2.background: #005573
 dzen2.font: xft:Inconsolata for Powerline:Medium:pixelsize=12:antialias=true:hinting=true

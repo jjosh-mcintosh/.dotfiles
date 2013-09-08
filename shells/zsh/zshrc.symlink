@@ -28,6 +28,8 @@ source $HOME/.rvm/scripts/rvm
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(bundler cloudapp extract gem git git-flow golang gpg-agent node npm powder rake ruby rvm ssh-agent svn systemd themes vagrant)
 
+source $DOTS/systems/distro.zsh
+
 # source every .zsh file in this rep
 # JM - source these before oh-my-zsh
 #for config_file ($DOTS/(zsh|system|git|irc|ruby|nginx|osx|postgresql|sublime2|tex|todo.txt|vim|pass|media)/*.zsh) source $config_file
@@ -35,7 +37,7 @@ plugins=(bundler cloudapp extract gem git git-flow golang gpg-agent node npm pow
 source "$ZSH/oh-my-zsh.sh"
 
 # Customize to your needs...
-export PATH=$PATH:/home/joshua/.rvm/gems/ruby-1.9.3-p125/bin:/home/joshua/.rvm/gems/ruby-1.9.3-p125@global/bin:/home/joshua/.rvm/rubies/ruby-1.9.3-p125/bin:/home/joshua/.rvm/bin:/home/tex/texlive/2010/bin/x86_64-linux:/usr/local/games:/opt/go/bin:/home/joshua/bin:/home/joshua/GNUstep/Tools:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/opt/java/bin:/opt/java/db/bin:/opt/java/jre/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/opt/plan9/bin
+export PATH=$PATH:/home/joshua/.gem/ruby/2.0.0/bin:/home/joshua/.rvm/bin:/home/tex/texlive/2010/bin/x86_64-linux:/usr/local/games:/opt/go/bin:/home/joshua/bin:/home/joshua/GNUstep/Tools:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/opt/java/bin:/opt/java/db/bin:/opt/java/jre/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/opt/plan9/bin
 
 
 # use .localrc for SUPER SECRET CRAP that you don't

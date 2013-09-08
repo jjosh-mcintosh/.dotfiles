@@ -1,6 +1,6 @@
 #!/bin/bash
 source $(dirname $0)/config.sh
-XPOS="923"
+XPOS="765"
 YPOS=0
 WIDTH="260"
 LINES="26"
@@ -25,4 +25,4 @@ hddtotal=$(df -h --total | tail -1)
 toptitle=$(top -bn1 | grep PID | cut -b1-5,42-) 
 top=$(top -bn1 | tail -n+8 | sort -k9nr -k10nr | cut -b1-5,42- | grep -v "chromium" | head -n8)
 
-(echo " ^fg($highlight)System"; echo " Temp: ^fg($highlight)$cputemp"; echo " CPU User : ^fg($highlight)$cpuutiluser %"; echo " CPU System : ^fg($highlight)$cpuutilsystem %"; echo " Idle: ^fg($highlight)$cpuutilidle %"; echo " RAM: ^fg($highlight)$ramused MB / $ramtotal MB"; echo " "; echo " Uptime: ^fg($highlight)$uptime"; echo " Kernel: ^fg($highlight)$kernel"; echo " Packages: ^fg($highlight)$packages"; echo " ";  echo "^fg($highlight)$toptitle"; echo "$top"; echo " ";echo " ^fg($highlight)$hddtitle"; echo " $hdd1"; echo " $hdd2"; echo " $hdd3"; echo " $hddtotal"; sleep 10) | dzen2 -fg $foreground -bg  $background -fn $FONT -x $XPOS -y $YPOS -w $WIDTH -l $LINES -e 'onstart=uncollapse,hide;button1=exit;button3=exit'
+(echo " ^fg($highlight)System"; echo " Temp: ^fg($highlight)$cputemp"; echo "CPU User : ^fg($highlight)$cpuutiluser %"; echo " CPU System : ^fg($highlight)$cpuutilsystem %"; echo " Idle: ^fg($highlight)$cpuutilidle %"; echo " RAM: ^fg($highlight)$ramused MB / $ramtotal MB"; echo " "; echo "Uptime: ^fg($highlight)$uptime"; echo " Kernel: ^fg($highlight)$kernel"; echo "Packages: ^fg($highlight)$packages"; echo " ";  echo "^fg($highlight)$toptitle"; echo "$top"; echo " ";echo "^fg($highlight)$hddtitle"; echo " $hdd1"; echo " $hdd2"; echo " $hdd3"; echo "$hddtotal"; sleep 10) | dzen2 -h $HEIGHT -fg $foreground -bg  $background -fn $FONT -x $XPOS -y $YPOS -w $WIDTH -l $LINES -e 'onstart=uncollapse,hide;button1=exit;button3=exit'

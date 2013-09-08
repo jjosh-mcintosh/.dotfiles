@@ -116,6 +116,9 @@ case "$pid" in
         uri="http://www.youtube.com/results?search_query=$arg&aq=f"
         save=1
         ;;
+    "ye"|"yelp") # yelp 
+        uri="http://www.yelp.com/search?find_desc=$arg&ns=1"
+        ;;
     "x") # delete
         sed -i "\|$arg|d" $bmarks
         exit;

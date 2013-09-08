@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+conky="conky-$(hostname)"
+
+conk_path=$(ls "$HOME/.conky/$conky" 2>/dev/null || ls \
+    "$HOME/.dotfiles/conky/$conky" 2>/dev/null)
+if [ -e "$conk_path" ]; then
+    conky -c $conk_path;
+else
+    if [ -e $HOME/.conkyrc ]; then
+        conky;
+    else
+        echo "no $conky" 1>&2;
+        exit 255
+    fi
+fi
