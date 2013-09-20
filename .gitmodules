@@ -19,18 +19,18 @@
 [submodule "editors/vim.symlink/bundle/vim-nerdtree-tabs"]
     path = editors/vim.symlink/bundle/vim-nerdtree-tabs
 	url = https://github.com/jistr/vim-nerdtree-tabs.git
-[submodule "editors/vim.symlink/bundle/vim-powerline"]
-    path = editors/vim.symlink/bundle/vim-powerline
-	url = https://github.com/Lokaltog/vim-powerline.git
 [submodule "editors/vim.symlink/bundle/vim-hybrid"]
     path = editors/vim.symlink/bundle/vim-hybrid
 	url = https://github.com/w0ng/vim-hybrid.git
 [submodule "editors/vim.symlink/bundle/tskeleton_vim"]
-    path = editors/vim.symlink/bundle/tskeleton_vim
-    url = https://github.com/tomtom/tskeleton_vim
+	path = editors/vim.symlink/bundle/tskeleton_vim
+	url = https://github.com/tomtom/tskeleton_vim
 [submodule "editors/vim.symlink/bundle/tlib_vim"]
-    path = editors/vim.symlink/bundle/tlib_vim
-    url = https://github.com/tomtom/tlib_vim
+	path = editors/vim.symlink/bundle/tlib_vim
+	url = https://github.com/tomtom/tlib_vim
 [submodule "editors/vim.symlink/bundle/stakeholders_vim"]
-    path = editors/vim.symlink/bundle/stakeholders_vim
-    url = https://github.com/tomtom/stakeholders_vim
+	path = editors/vim.symlink/bundle/stakeholders_vim
+	url = https://github.com/tomtom/stakeholders_vim
+[submodule "editors/vim.symlink/bundle/powerline"]
+	path = editors/vim.symlink/bundle/powerline
+	url = https://github.com/Lokaltog/powerline.git

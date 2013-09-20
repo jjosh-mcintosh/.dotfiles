@@ -3,6 +3,7 @@
 setup () {
         start-pulseaudio-x11 &
         xrdb -merge ~/.Xdefaults &
+        xset +fp ~/.fonts/ &
         xset +fp /usr/share/fonts/local &
         xset +fp /usr/share/fonts/TTF/ &
         xset fp rehash &
