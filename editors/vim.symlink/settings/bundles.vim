@@ -10,10 +10,7 @@ Bundle 'Lokaltog/vim-powerline'
 
 Bundle 'scrooloose/nerdtree'
 Bundle 'jistr/vim-nerdtree-tabs'
-Bundle 'tpope/vim-foreplay'
 
-
-Bundle 'spolu/dwm.vim'
 Bundle 'flazz/vim-colorschemes'
 Bundle 'w0ng/vim-hybrid'
 Bundle 'kien/ctrlp.vim'
