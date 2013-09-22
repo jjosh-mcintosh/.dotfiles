@@ -19,3 +19,6 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'tomtom/tskeleton_vim'
 Bundle 'tomtom/tlib_vim'
 Bundle 'tomtom/stakeholders_vim'
+
+Bundle 'ervandew/supertab'
+Bundle 'vim-scripts/OmniCppComplete'

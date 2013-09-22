@@ -34,3 +34,9 @@
 [submodule "editors/vim.symlink/bundle/powerline"]
 	path = editors/vim.symlink/bundle/powerline
 	url = https://github.com/Lokaltog/powerline.git
+[submodule "editors/vim.symlink/bundle/OmniCppComplete"]
+	path = editors/vim.symlink/bundle/OmniCppComplete
+	url = https://github.com/vim-scripts/OmniCppComplete.git
+[submodule "editors/vim.symlink/bundle/supertab"]
+	path = editors/vim.symlink/bundle/supertab
+	url = https://github.com/ervandew/supertab.git
