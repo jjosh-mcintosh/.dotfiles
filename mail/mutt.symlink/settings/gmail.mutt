@@ -1,0 +1,32 @@
+# vim: set ft=conf :#
+my_gmtmp=`gpg -o ~/.secret/.tmp -d ~/.password-store/email/gmail.gpg`
+set my_gmpw=`cut -c 1-10 ~/.secret/.tmp`
+set my_gmuser=`awk -F: '/user/{ print $2 }' ~/.secret/.tmp`
+set my_gmfolder=`awk -F: '/folder/{ print $2 }' ~/.secret/.tmp`
+set my_del=`rm ~/.secret/.tmp`
+
+account-hook . 'unset imap_user; unset imap_pass;'
+set folder="imaps://$my_gmfolder/"
+
+set imap_user=$my_gmuser
+set imap_pass=$my_gmpw
+set spoolfile=+INBOX
+set postponed=+[Gmail]/Drafts
+set record=+[Gmail]/'Sent Mail'
+set header_cache=~/.mutt/cache/headers
+
+# TODO: Add more/tweak mailboxes
+mailboxes =INBOX =[Gmail]/Drafts =[Gmail]/'Sent Mail' =[Gmail]/Spam
+
+set smtp_url=smtps://${my_gmuser}:${my_gmpw}@smtp.gmail.com
+set signature=~/.mutt/gmail.sig
+set from='Joshua McIntosh <'$my_gmuser'@gmail.com> '
+set realname='Joshua McIntosh'
+set sort='reverse-threads'
+set ssl_force_tls = yes
+
+account-hook "imaps://$my_gmfolder/" "\
+             set imap_user = $my_gmuser ; \
+             set imap_pass = $my_gmpw "
+
+

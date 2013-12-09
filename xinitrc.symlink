@@ -6,6 +6,10 @@ setup () {
         xset +fp ~/.fonts/ &
         xset +fp /usr/share/fonts/local &
         xset +fp /usr/share/fonts/TTF/ &
+        xset +fp /usr/share/fonts/OTF/ &
+        xset +fp /usr/share/fonts/truetype &
+        xset +fp /usr/share/fonts/opentype &
+        xset +fp /usr/share/fonts/X11 &
         xset fp rehash &
         dunst &
         dropbox start &

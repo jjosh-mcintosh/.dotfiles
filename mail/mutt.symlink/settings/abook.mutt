@@ -1,3 +1,4 @@
+# vim: set ft=conf :#
 set alias_file=~/.mutt/aliases
 source ~/.mutt/aliases
 set query_command= "abook --mutt-query '%s'"

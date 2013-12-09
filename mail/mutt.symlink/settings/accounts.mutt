@@ -1,3 +1,4 @@
+# vim: set ft=conf :#
 ###################################################
 # MULTIPLE ACCOUNT SETUP                          #
 ###################################################
@@ -13,51 +14,11 @@
 # ----
 # [1]: http://git.zx2c4.com/password-store/about/ "Password-Store"
 #
-set my_gmtmp=`gpg -o ~/.secret/.tmp -d ~/.password-store/email/gmail.gpg`
-set my_gmpw=`cut -c 1-10 ~/.secret/.tmp`
-set my_gmuser=`awk -F: '/user/{ print $2 }' ~/.secret/.tmp`
-set my_gmfolder=`awk -F: '/folder/{ print $2 }' ~/.secret/.tmp`
-set my_del=`rm ~/.secret/.tmp`
+source      "~/.mutt/settings/outlook.mutt"
+folder-hook 'imaps://$my_outfolder/' "source ~/.mutt/settings/outlook.mutt"
 
-set my_outtmp=`gpg -o ~/.secret/.tmp -d ~/.password-store/email/outlook.gpg`
-set my_outpw=`cut -c 1-10 ~/.secret/.tmp`
-set my_del=`rm ~/.secret/.tmp`
-
-# Account hooks
-account-hook . 'unset imap_user; unset imap_pass; unset tunnel'
-account-hook "imaps://$my_gmfolder/" "\
- 			 set imap_user = $my_gmuser ; \
-			 set imap_pass = $my_gmpw "
-
-
-set folder="imaps://$my_gmfolder/"
-# TODO: Add more/tweak mailboxes
-mailboxes =INBOX =[Gmail]/Drafts =[Gmail]/'Sent Mail' =[Gmail]/Spam
-folder-hook     'imaps://$my_gmfolder' " \
-		set 	folder=imaps://$my_gmfolder/ \
-				header_cache=~/.mutt/cache/headers \
-				spoolfile=+INBOX \
-				postponed=+[Gmail]/Drafts \
-				record=+[Gmail]/'Sent Mail' \
-				smtp_url=smtps://${my_gmuser}@smtp.gmail.com \
-				smtp_pass=$my_gmpw \
-				signature=~/.mutt/gmail.sig \
-				from='Joshua McIntosh <'$my_gmuser'@gmail.com> ' \
-				realname='Joshua McIntosh' \
-				sort='reverse-threads' "
-
-#  set folder="imaps://EMAIL_SERVER/"
-#  mailboxes =INBOX
-#  folder-hook 'imaps://EMAIL_SERVER' " \
-#  		set 	folder=imaps://EMAIL_SERVER/ \
-#  				spoolfile = +INBOX \
-#  				smtp_url=smtps://SMTP_SERVER \
-#  				smtp_pass=$my_outpw \
-#  				signature=~/.mutt/outlook.sig \
-#  				from='Joshua McIntosh <EMAIL> ' \
-#  				realname='Joshua McIntosh' "
-# 
-#
+source      "~/.mutt/settings/gmail.mutt"
+folder-hook 'imaps://$my_gmfolder' "source ~/.mutt/settings/gmail.mutt"
 #-------------------------------------
 # Macros to make life easier
 #-------------------------------------
