@@ -40,3 +40,6 @@
 [submodule "editors/vim.symlink/bundle/supertab"]
 	path = editors/vim.symlink/bundle/supertab
 	url = https://github.com/ervandew/supertab.git
+[submodule "shells/zsh/pure"]
+	path = shells/zsh/pure
+	url = https://github.com/sindresorhus/pure.git

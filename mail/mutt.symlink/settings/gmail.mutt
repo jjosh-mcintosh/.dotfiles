@@ -13,7 +13,6 @@ set imap_pass=$my_gmpw
 set spoolfile=+INBOX
 set postponed=+[Gmail]/Drafts
 set record=+[Gmail]/'Sent Mail'
-set header_cache=~/.mutt/cache/headers
 
 # TODO: Add more/tweak mailboxes
 mailboxes =INBOX =[Gmail]/Drafts =[Gmail]/'Sent Mail' =[Gmail]/Spam

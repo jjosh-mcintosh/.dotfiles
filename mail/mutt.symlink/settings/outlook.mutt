@@ -5,16 +5,14 @@ set my_outuser=`awk -F: '/user/{ print $2 }' ~/.secret/.tmp`
 set my_outfolder=`awk -F: '/folder/{ print $2 }' ~/.secret/.tmp`
 set my_del=`rm ~/.secret/.tmp`
 
-unset ssl_force_tls
-unset ssl_force_tls
 account-hook . 'unset imap_user; unset imap_pass;'
 set folder="imaps://$my_outfolder/"
-# Account hooks
+
 set imap_user=${my_outuser}@outlook.com
 set imap_pass=$my_outpw
-set spoolfile = +INBOX
-set postponed = +Drafts
-set record = +Sent
+set spoolfile =+INBOX
+set postponed =+Drafts
+set record =+Sent
 mailboxes =INBOX
 
 set smtp_url=smtps://${my_outuser}:${my_outpw}@smtp-mail.outlook.com

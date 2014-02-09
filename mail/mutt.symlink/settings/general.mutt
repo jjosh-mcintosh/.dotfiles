@@ -1,4 +1,5 @@
 set timeout=60	#Check for mail every minute
 set mail_check=5
+set header_cache=~/.mutt/cache/headers
 
 # vim: set ft=conf :#
