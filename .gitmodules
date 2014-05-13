@@ -43,3 +43,15 @@
 [submodule "shells/zsh/pure"]
 	path = shells/zsh/pure
 	url = https://github.com/sindresorhus/pure.git
+[submodule "editors/vim.symlink/bundle/vim-airline"]
+	path = editors/vim.symlink/bundle/vim-airline
+	url = git://github.com/bling/vim-airline.git
+[submodule "editors/vim.symlink/bundle/vim-gitgutter"]
+	path = editors/vim.symlink/bundle/vim-gitgutter
+	url = git://github.com/airblade/vim-gitgutter.git
+[submodule "editors/vim.symlink/bundle/vim-fugitive"]
+	path = editors/vim.symlink/bundle/vim-fugitive
+	url = git://github.com/tpope/vim-fugitive.git
+[submodule "editors/vim.symlink/bundle/vim-bufferline"]
+	path = editors/vim.symlink/bundle/vim-bufferline
+	url = git://github.com/bling/vim-bufferline

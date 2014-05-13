@@ -6,7 +6,7 @@ set hidden                      " Handle multiple buffers better
 set ruler                       " Show cursor position
 set showcmd                     " Display incomplete commands
 set showmode                    " Display the mode you're in
-set nolazyredraw                " Don't redraw while executing macros
+set lazyredraw                " Don't redraw while executing macros
 set number                      " Show line numbers
 
 set printoptions=paper:letter,duplex:long,number:y
@@ -38,9 +38,7 @@ set shellslash                  " Use forward slashes everwhere
 set mousehide                   " Hide the mouse pointer while typing
 
 set laststatus=2                " Always show status line
-set statusline=[%n]\ %<%.99f\ %h%w%m%r%y
-set statusline+=\ %{exists('fugitive')?fugitive#statusline():''}
-set statusline+=%=%-16(\ %l,%c-%v\ %)%P
+set showtabline=0
 
 set list                        " Show whitespace chars
 set listchars=tab:»\ ,eol:¬,trail:·
@@ -62,5 +60,5 @@ set background=dark
 set t_Co=256
 let base16colorspace=256
 
-color symfony
-
+color wombat256mod
+let g:airline_theme="bubblegum"

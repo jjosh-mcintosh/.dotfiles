@@ -71,7 +71,8 @@
 
   ;; ## General
   (xbindkey '(control alt l) "slock")
-  (xbindkey '(mod4 p) "dmenu_menu")
+  (xbindkey '(mod4 p) "dmenu_run")
+  (xbindkey '(control alt t) "tabbed urxvt -embed")
   (xbindkey-function '(mod4 shift Escape) (lambda()
                                             (run-command "notify-send -a \"xkill\" \"STARTING XKILL\"")
                                             (run-command "xkill")))

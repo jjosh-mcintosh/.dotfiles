@@ -79,7 +79,7 @@ if has("autocmd")
 	autocmd BufNewFile *.plx TSkeletonSetup perl.pl
 	autocmd BufNewFile *.pl TSkeletonSetup perl.pl
 	autocmd BufNewFile *.cpp TSkeletonSetup c48.c
-	autocmd BufNewFile *.c TSkeletonSetup c.c
+	autocmd BufNewFile *.c TSkeletonSetup /home/joshua/.vim/skeletons/c.c
 	autocmd BufNewFile *.paper.tex   TSkeletonSetup template.essay.tex
 	
 	" Read certain files right, please!

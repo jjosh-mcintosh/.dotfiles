@@ -1,2 +1,4 @@
 alias music='ncmpcpp'
 alias dvtm='dvtm -m '
+alias e='vim -p'
+alias vim='vim -p'

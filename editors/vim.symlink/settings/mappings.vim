@@ -109,21 +109,6 @@ noremap <Leader>mm mmHmt:%s/<C-V><CR>//ge<CR>'tzt'm
 " Toggle whitespace characters
 nmap <Leader>l :set list!<CR>
 
-" Strip trailing whitespace
-function! <SID>StripTrailingWhitespaces()
-    " Preparation : save last search, and cursor position
-    let _s=@/
-    let l = line(".")
-    let c = col(".")
-    " Do the business:
-    %s/\s\+$//e
-    " Clean up: restore previous search history, and cursor position
-    let @/=_s
-    silent! call cursor(l, c)
-endfunction
-
-nnoremap <silent> <Leader>W :call <SID>StripTrailingWhitespaces()<CR>
-
 " Make the directory that contains the file in the current buffer.
 " This is useful when you edit a file in a directory that doesn't
 " (yet) exist

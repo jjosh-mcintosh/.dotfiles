@@ -13,7 +13,7 @@ layouts=('^i(/usr/share/icons/stlarch_icons/tile.xbm)'
 
 trayer --edge top --align right --SetPartialStrut true --SetDockType true --heighttype pixel \
     --height 14 --widthtype pixel --width 130 &
-ltconk | dzen2 -h 16 -y 0 -x 645 -w 500 -ta r -e -p -bg '#210431' -fg '#bbbbbb' -fn "-*-profont-*-*-*-*-12-*-*-*-*-*-*-*" &
+ltconk monster | dzen2 -h 16 -y 0 -x 645 -w 500 -ta r -e -p -bg '#210431' -fg '#bbbbbb' -fn "-*-profont-*-*-*-*-12-*-*-*-*-*-*-*" &
 
 # Check if it's a pipe, otherwise create it
 [[ -p $ff ]] || mkfifo -m 600 "$ff"
@@ -49,7 +49,8 @@ while read -t 60 -r wmout || true; do
     echo "^ca(1,/home/joshua/bin/dzen_log.sh)^fg(#1892CE)  \
 ^i(/usr/share/icons/stlarch_icons/arch1.xbm) ^ca()^fg()^bg()| $tmp  \
 $layout  $title"
-done < "$ff" | dzen2 -w 520 -h 16 -y 0 -ta l -e -p -bg '#210431' -fg '#bbbbbb' -fn "-*-profont-*-*-*-*-12-*-*-*-*-*-*-*" &
+done < "$ff" | dzen2 -w 520 -h 16 -y 0 -ta l -e -p -bg '#210431' -fg '#bbbbbb' -fn "-*-profont-*-*-*-*-12-*-*-*-*-*-*-*"
+&
 
 while :; do (sleep 2 && "$wm") || break; done | tee -a "$ff"
 #$wm > "$ff"

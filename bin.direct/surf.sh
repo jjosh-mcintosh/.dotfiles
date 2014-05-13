@@ -88,7 +88,7 @@ case "$pid" in
     s_set_prop _SURF_GO "$uri"
     ;;
 "_SURF_URI")
-    sel=`tac $bmarks 2> /dev/null | $dmenu -fn "$font" -p "uri [dgtwuy*]:"`
+    sel=`tac $bmarks 2> /dev/null | $dmenu -fn "$font" -p "⮁uri [dgtwuy*]:"`
     [ -z "$sel" ] && exit
     opt=$(echo $sel | cut -d ' ' -f 1)
     arg=$(echo $sel | cut -d ' ' -f 2-)

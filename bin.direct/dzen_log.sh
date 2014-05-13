@@ -10,7 +10,7 @@ SLEEP=15
 
 date=$(date --rfc-3339=date)
 dmesg=$(dmesg | tail -n25 | cut -b16-)
-journal=$(journalctl --no-pager -q --since=$date | sed -e '/kernel:/d' | tail -n25)
+journal=$(sudo tail /var/log/user.log | sed -e '/kernel:/d' | tail -n25)
 
 (echo " ^fg($highlight)Logs"; echo "^fg($highlight)KERNEL "; echo " "; echo \
 "^fg()$dmesg"; echo " "; echo "^fg($highlight)USERLAND "; echo " "; echo \

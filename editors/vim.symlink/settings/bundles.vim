@@ -7,7 +7,7 @@ Bundle 'gmarik/vundle'
 "Bundle 'altercation/vim-colors-solarized'
 
 Bundle 'majutsushi/tagbar'
-Bundle 'Lokaltog/powerline'
+"Bundle 'Lokaltog/powerline'
 
 Bundle 'scrooloose/nerdtree'
 Bundle 'jistr/vim-nerdtree-tabs'
@@ -22,3 +22,8 @@ Bundle 'tomtom/stakeholders_vim'
 
 Bundle 'ervandew/supertab'
 Bundle 'vim-scripts/OmniCppComplete'
+
+Bundle 'bling/vim-airline'
+Bundle 'airblade/vim-gitgutter'
+Bundle 'tpope/vim-fugitive'
+Bundle 'bling/vim-bufferline'

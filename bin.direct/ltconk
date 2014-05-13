@@ -2,7 +2,11 @@
 
 conky="conky-$(hostname)"
 
-conk_path=$(ls "$HOME/.conky/$conky" 2>/dev/null || ls \
+wm="$1"
+
+conk_path=$(ls "$HOME/.conky/$conky-$wm" 2>/dev/null || ls \
+    ls "$HOME/.conky/$conky" 2>/dev/null ||
+    ls "$HOME/.dotfiles/conky/$conky-$wm" 2>/dev/null ||
     "$HOME/.dotfiles/conky/$conky" 2>/dev/null)
 if [ -e "$conk_path" ]; then
     conky -c $conk_path;
@@ -10,7 +14,7 @@ else
     if [ -e $HOME/.conkyrc ]; then
         conky;
     else
-        echo "no $conky" 1>&2;
+        echo "no $conky or $conky-$wm" 1>&2;
         exit 255
     fi
 fi

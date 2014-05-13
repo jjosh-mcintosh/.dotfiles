@@ -1,5 +1,5 @@
 # vim: set ft=conf :#
-my_gmtmp=`gpg -o ~/.secret/.tmp -d ~/.password-store/email/gmail.gpg`
+set my_gmtmp=`gpg -o ~/.secret/.tmp -d ~/.password-store/email/gmail.gpg`
 set my_gmpw=`cut -c 1-10 ~/.secret/.tmp`
 set my_gmuser=`awk -F: '/user/{ print $2 }' ~/.secret/.tmp`
 set my_gmfolder=`awk -F: '/folder/{ print $2 }' ~/.secret/.tmp`
