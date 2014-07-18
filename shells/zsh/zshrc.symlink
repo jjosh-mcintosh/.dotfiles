@@ -8,7 +8,6 @@ export ZSH=$DOTS/shells/zsh/oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-#export ZSH_THEME="juanghurtado"
 export ZSH_THEME="pure"
 
 # Set to this to use case-sensitive completion
@@ -23,10 +22,18 @@ export ZSH_THEME="pure"
 # Uncomment following line if you want to disable autosetting terminal title.
 # export DISABLE_AUTO_TITLE="true"
 
-source $HOME/.rvm/scripts/rvm
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(bundler cloudapp extract gem git git-flow golang gpg-agent node npm powder rake ruby rvm ssh-agent svn systemd themes vagrant)
+
+# use .localrc for SUPER SECRET CRAP that you don't
+# want in your public, versioned repo.
+if [[ -a ~/.localrc ]]
+then
+  source ~/.localrc
+fi
+
+if [[ -f ~/.rvm/scripts/rvm ]]
+then
+  source $HOME/.rvm/scripts/rvm
+fi
 
 source $DOTS/systems/distro.zsh
 
@@ -38,14 +45,6 @@ source "$ZSH/oh-my-zsh.sh"
 
 # Customize to your needs...
 export PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/opt/plan9/bin
-
-
-# use .localrc for SUPER SECRET CRAP that you don't
-# want in your public, versioned repo.
-if [[ -a ~/.localrc ]]
-then
-  source ~/.localrc
-fi
 
 source $DOTS/aliases
 
