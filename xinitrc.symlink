@@ -2,15 +2,15 @@
 
 setup () {
         start-pulseaudio-x11 &
-        xrdb -merge ~/.Xdefaults &
-        xset +fp ~/.fonts/ &
-        xset +fp /usr/local/share/fonts/ &
-        #xset +fp /usr/share/fonts/TTF/ &
-        #xset +fp /usr/share/fonts/OTF/ &
-        xset +fp /usr/share/fonts/truetype &
-        xset +fp /usr/share/fonts/opentype &
-        xset +fp /usr/share/fonts/X11 &
-        xset fp rehash &
+        xset +fp ~/.fonts/
+        xset +fp /usr/local/share/fonts/
+        #xset +fp /usr/share/fonts/TTF/
+        #xset +fp /usr/share/fonts/OTF/
+        xset +fp /usr/share/fonts/truetype
+        xset +fp /usr/share/fonts/opentype
+        xset +fp /usr/share/fonts/X11
+        xset fp rehash
+        xrdb -merge ~/.Xdefaults
         xfce4-power-manager &
         dunst &
         dropbox start &
@@ -24,24 +24,24 @@ case $1 in
 	
 	openbox-session|Openbox)
 		setup &
-		dbus-launch --exit-with-session openbox-session;
+		ssh-agent dbus-launch --exit-with-session openbox-session;
 		;;
 
     wmii|Wmii|WMII)
         setup &
-        dbus-launch --exit-with-session wmii;
+        ssh-agent dbus-launch --exit-with-session wmii;
         ;;
 
     rio|plan9)
         setup &
         xautolock -time 15 -locker slock &
-        dbus-launch --exit-with-session rio -term urxvtc -virtuals 4;
+        ssh-agent dbus-launch --exit-with-session rio -term urxvtc -virtuals 4;
         ;;
 
     herbstluftwm|hc)
         setup &
         xautolock -time 15 -locker slock &
-        dbus-launch --exit-with-session herbstluftwm;
+        ssh-agent dbus-launch --exit-with-session herbstluftwm;
         ;;
 
 	dwm|Dwm)
@@ -49,14 +49,14 @@ case $1 in
         (bash -c 'conky | while read; do xsetroot -name "$REPLY"; done') &
         xautolock -time 15 -locker slock &
         xbindkeys &
-		dbus-launch --exit-with-session dwm;
+		ssh-agent dbus-launch --exit-with-session dwm;
 		;;
 
     monsterwm|monster)
         setup &
         xautolock -time 15 -locker slock &
         xbindkeys &
-        dbus-launch --exit-with-session monster_and_bar.sh;
+        ssh-agent dbus-launch --exit-with-session monster_and_bar.sh;
         ;;
 
     bspwm|'')
@@ -64,7 +64,7 @@ case $1 in
         xautolock -time 15 -locker slock &
         xbindkeys &
         sxhkd &
-        dbus-launch --exit-with-session bspwm;
+        ssh-agent dbus-launch --exit-with-session bspwm;
 
 esac
 

@@ -1,7 +1,7 @@
 Xcursor.theme: redglass
 
 XTerm*rightScrollBar: off
-XTerm*savelines: 5000
+XTerm*savelines: 1000
 !Xterm*geometry: 80x40
 !XTerm*background: #222222
 !XTerm*foreground: #bbbbbb
@@ -27,7 +27,7 @@ XTerm*savelines: 5000
 URxvt.iso14755: false
 URxvt.iso14755_52: false
 urxvt*termName:rxvt-unicode-256color
-urxvt*saveLines: 5000
+urxvt*saveLines: 600
 urxvt*background: #212021
 !urxvt*mouseWheelScrollPage: false
 
@@ -78,10 +78,8 @@ urxvt*boldFont: -*-tewi-medium-r-normal--11-90-75-75-p-58-iso10646-1
 !!urxvt*boldFont:         -*-courier new-medium-r-*-*-19-*-*-*-*-*-iso8859-2
 !!urxvt*italicFont:       -*-courier new-medium-r-*-*-19-*-*-*-*-*-iso8859-2
 !!urxvt*boldItalicFont:   -*-courier new-medium-r-*-*-19-*-*-*-*-*-iso8859-2
-URxvt.iso14755: false
-URxvt.iso14755_52: false
 rxvt*termName:rxvt-unicode-256color
-rxvt*saveLines: 5000
+rxvt*saveLines: 600
 rxvt*background: #212021
 !rxvt*mouseWheelScrollPage: false
 
@@ -142,9 +140,8 @@ dzen2.font: xft:Inconsolata for Powerline:Medium:pixelsize=12:antialias=true:hin
 !xpdf*background: white
 !xpdf*urlCommand: links -g %s
 !xpdf*viKeys: on
-!!}}}
-! Hybrid Terminal Colours
-! vim: ft=xdefaults
+!! }}}
+!! Hybrid Terminal Colours
  
 ! Tomorrow-Night Palette
 #define t_background #1D1F21
@@ -213,3 +210,4 @@ URxvt.color14:          #42717B
 ! White
 URxvt.color7:           #dddddd
 URxvt.color15:          #dddddd
+!! vim: ft=xdefaults
