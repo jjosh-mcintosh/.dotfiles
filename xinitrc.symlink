@@ -16,7 +16,7 @@ setup () {
         dropbox start &
 		tmux set-environment -g DISPLAY $DISPLAY &
 		urxvtd -f -o -q &
-        xcompmgr -C -c &
+        #xcompmgr -C -c &
 		. /$HOME/.fehbg;
 }
 
@@ -24,24 +24,24 @@ case $1 in
 	
 	openbox-session|Openbox)
 		setup &
-		ssh-agent dbus-launch --exit-with-session openbox-session;
+		 dbus-launch --exit-with-session openbox-session;
 		;;
 
     wmii|Wmii|WMII)
         setup &
-        ssh-agent dbus-launch --exit-with-session wmii;
+         dbus-launch --exit-with-session wmii;
         ;;
 
     rio|plan9)
         setup &
         xautolock -time 15 -locker slock &
-        ssh-agent dbus-launch --exit-with-session rio -term urxvtc -virtuals 4;
+         dbus-launch --exit-with-session rio -term urxvtc -virtuals 4;
         ;;
 
     herbstluftwm|hc)
         setup &
         xautolock -time 15 -locker slock &
-        ssh-agent dbus-launch --exit-with-session herbstluftwm;
+         dbus-launch --exit-with-session herbstluftwm;
         ;;
 
 	dwm|Dwm)
@@ -49,14 +49,14 @@ case $1 in
         (bash -c 'conky | while read; do xsetroot -name "$REPLY"; done') &
         xautolock -time 15 -locker slock &
         xbindkeys &
-		ssh-agent dbus-launch --exit-with-session dwm;
+		 dbus-launch --exit-with-session dwm;
 		;;
 
     monsterwm|monster)
         setup &
         xautolock -time 15 -locker slock &
         xbindkeys &
-        ssh-agent dbus-launch --exit-with-session monster_and_bar.sh;
+         dbus-launch --exit-with-session monster_and_bar.sh;
         ;;
 
     bspwm|'')
@@ -64,7 +64,7 @@ case $1 in
         xautolock -time 15 -locker slock &
         xbindkeys &
         sxhkd &
-        ssh-agent dbus-launch --exit-with-session bspwm;
+         dbus-launch --exit-with-session bspwm;
 
 esac
 

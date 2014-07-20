@@ -1,1 +1,10 @@
-<html><body>You are being <a href="https://raw.githubusercontent.com/holman/dotfiles/master/script/install">redirected</a>.</body></html>
+#!/usr/bin/env bash
+#
+# Run all dotfiles installers.
+
+set -e
+
+cd "$(dirname $0)"/..
+
+# find the installers and run them iteratively
+find . -name install.sh | while read installer ; do sh -c "${installer}" ; done
