@@ -2,3 +2,5 @@ media/beets.config/state.pickle
 media/ncmpcpp.symlink/error.log
 bin.direct/monsterwm
 editors/vim.symlink/bundle/vundle/cache/*
+editors/emacs.d.symlink/elpa
+editors/emacs.d.symlink/auto-save-list
