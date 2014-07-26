@@ -1,7 +1,12 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
 setup () {
         start-pulseaudio-x11 &
+        eval $(gnome-keyring-daemon --start --components=gpg) &
+        eval $(gnome-keyring-daemon --start --components=secrets) &
+        eval $(gnome-keyring-daemon --start --components=ssh) &
+        eval $(gnome-keyring-daemon --start --components=pkcs11) &
+        nm-applet &
         xset +fp ~/.fonts/
         xset +fp /usr/local/share/fonts/
         #xset +fp /usr/share/fonts/TTF/

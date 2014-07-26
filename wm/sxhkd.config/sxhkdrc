@@ -1,0 +1,146 @@
+#
+# bspwm hotkeys
+#
+
+super + alt + Escape
+	pkill conky; pkill bar; pkill panel; bspc quit
+
+super + w
+	bspc window -c
+
+super + t
+	bspc desktop -l next
+
+super + b
+	bspc desktop -B
+
+super + {s,f}
+	bspc window -t {floating,fullscreen}
+
+super + {grave,Tab}
+	bspc {window,desktop} -f last
+
+super + apostrophe
+	bspc window -s last
+
+super + {o,i}
+	bspc control --record-history off; \
+	bspc window {older,newer} -f; \
+	bspc control --record-history on
+
+super + y
+	bspc window -w last.manual
+
+super + m
+	bspc window -s biggest
+
+super + {_,shift + }{h,j,k,l}
+	bspc window -{f,s} {left,down,up,right}
+
+super + {_,shift + }c
+	bspc window -f {next,prev}
+
+super + {comma,period}
+	bspc desktop -C {backward,forward}
+
+super + bracket{left,right}
+	bspc desktop -f {prev,next}
+
+super + ctrl + {h,j,k,l}
+	bspc window -p {left,down,up,right}
+
+super + ctrl + {_,shift + }space
+	bspc {window -p cancel,desktop -c}
+
+super + alt + {h,j,k,l}
+	bspc window -e {left -10,down +10,up -10,right +10}
+
+super + alt + shift + {h,j,k,l}
+	bspc window -e {right -10,up +10,down -10,left +10}
+
+super + ctrl + {1-9}
+	bspc window -r 0.{1-9}
+
+super + {_,shift + }{1-9,0}
+	bspc {desktop -f,window -d} ^{1-9,10}
+
+~button1
+	bspc pointer -g focus
+
+super + button{1-3}
+	bspc pointer -g {move,resize_side,resize_corner}
+
+super + !button{1-3}
+	bspc pointer -t %i %i
+
+super + @button{1-3}
+	bspc pointer -u
+
+#
+# wm independent hotkeys
+#
+
+super + Return
+	tabbed urxvt -embed
+
+super + shift + Return
+	urxvt
+
+super + {_,shift +} p
+	tabbed {surf,dwb} -e
+
+super + space
+	/home/joshua/.config/bspwm/panel/scripts/spawn_dmenu
+
+XF86AudioPlay
+	ncmpcpp toggle
+
+XF86AudioPrev
+	ncmpcpp prev
+
+XF86AudioNext
+	ncmpcpp next
+
+XF86AudioStop
+	ncmpcpp stop
+
+XF86Audio{Raise,Lower}Volume
+	amixer -q sset Master 5%{+,-} unmute
+
+XF86AudioMute
+	amixer -q sset Master toggle
+
+Shift + XF86Audio{Raise,Lower}Volume
+	mpc volume {+,-}5%
+
+
+super + F1
+    ~/.config/bspwm/panel/scripts/toggle_conky net
+
+super + F2
+    ~/.config/bspwm/panel/scripts/toggle_conky disk
+
+super + F3
+    ~/.config/bspwm/panel/scripts/toggle_conky mem
+
+super + F4
+    ~/.config/bspwm/panel/scripts/toggle_conky cpu
+
+super + F5
+    ~/.config/bspwm/panel/scripts/toggle_conky batt
+
+super + F6
+    ~/.config/bspwm/panel/scripts/toggle_conky mpd
+
+super + F7
+    ~/.config/bspwm/panel/scripts/toggle_conky cal
+
+ctrl + alt + s
+	bash -c 'slock & sudo pm-suspend'
+
+ctrl + alt + l
+	slock
+
+# make sxhkd reload its configuration files:
+super + Escape
+	pkill -USR1 -x sxhkd
