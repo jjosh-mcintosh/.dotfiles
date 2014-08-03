@@ -1,5 +1,5 @@
 set rtp+=~/.vim/bundle/vundle/
-    set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+"set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
@@ -13,7 +13,7 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'jistr/vim-nerdtree-tabs'
 
 Bundle 'flazz/vim-colorschemes'
-Bundle 'w0ng/vim-hybrid'
+"Bundle 'w0ng/vim-hybrid'
 Bundle 'kien/ctrlp.vim'
 
 Bundle 'tomtom/tskeleton_vim'
@@ -24,6 +24,6 @@ Bundle 'ervandew/supertab'
 Bundle 'vim-scripts/OmniCppComplete'
 
 Bundle 'bling/vim-airline'
+Bundle 'bling/vim-bufferline'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'tpope/vim-fugitive'
-Bundle 'bling/vim-bufferline'
