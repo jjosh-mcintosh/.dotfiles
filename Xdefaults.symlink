@@ -3,6 +3,7 @@ Xcursor.theme: redglass
 XTerm*rightScrollBar: off
 XTerm*savelines: 1000
 !Xterm*geometry: 80x40
+URxvt*geometry: 204x52
 !XTerm*background: #222222
 !XTerm*foreground: #bbbbbb
 !XTerm*colorMode:  on
@@ -65,8 +66,8 @@ urxvt*cutchars: `"()'*<>[]{|}
 !!urxvt*font: xft:Bitstream Vera Sans mono:size=14
 !!urxvt*font: xft:terminus:pixelsize=20:bold
 !!urxvt*font: xft:DejaVu Sans Mono:pixelsize=18
-urxvt*font: -*-tewi-medium-r-normal--11-90-75-75-p-58-iso10646-1
-urxvt*boldFont: -*-tewi-medium-r-normal--11-90-75-75-p-58-iso10646-1
+!!urxvt*font: -*-tewi-medium-r-normal--14-*-*-*-*-*-iso10646-*
+!!urxvt*boldFont: -*-tewi-medium-r-normal--11-90-75-75-p-58-iso10646-1
 !!urxvt*font: -xos4-terminus-medium-r-normal-*-19-*-*-*-*-*-*-*
 !!urxvt*font: -*-ohsnap-medium-r-*-*-12-*-*-*-*-*-*-*
 !!urxvt*font: -*-dina-medium-r-*-*-17-*-*-*-*-*-*-*
@@ -117,7 +118,7 @@ rxvt*cutchars: `"()'*<>[]{|}
 !!rxvt*font: xft:Bitstream Vera Sans mono:size=14
 !!rxvt*font: xft:terminus:pixelsize=20:bold
 !!rxvt*font: xft:DejaVu Sans Mono:pixelsize=18
-rxvt*font: xft:Inconsolata for Powerline:Medium:pixelsize=12:antialias=true:hinting=true
+URxvt*font: xft:Ubuntu Mono:pixelsize=14
 !!rxvt*font: -xos4-terminus-medium-r-normal-*-19-*-*-*-*-*-*-*
 !!rxvt*font: -*-ohsnap-medium-r-*-*-12-*-*-*-*-*-*-*
 !!rxvt*font: -*-dina-medium-r-*-*-17-*-*-*-*-*-*-*

@@ -31,12 +31,6 @@
 [submodule "editors/vim.symlink/bundle/stakeholders_vim"]
 	path = editors/vim.symlink/bundle/stakeholders_vim
 	url = https://github.com/tomtom/stakeholders_vim
-[submodule "editors/vim.symlink/bundle/powerline"]
-	path = editors/vim.symlink/bundle/powerline
-	url = https://github.com/Lokaltog/powerline.git
-[submodule "editors/vim.symlink/bundle/OmniCppComplete"]
-	path = editors/vim.symlink/bundle/OmniCppComplete
-	url = https://github.com/vim-scripts/OmniCppComplete.git
 [submodule "editors/vim.symlink/bundle/supertab"]
 	path = editors/vim.symlink/bundle/supertab
 	url = https://github.com/ervandew/supertab.git
@@ -55,3 +49,6 @@
 [submodule "editors/vim.symlink/bundle/vim-bufferline"]
 	path = editors/vim.symlink/bundle/vim-bufferline
 	url = git://github.com/bling/vim-bufferline
+[submodule "editors/vim.symlink/bundle/YouCompleteMe"]
+	path = editors/vim.symlink/bundle/YouCompleteMe
+	url = https://github.com/Valloric/YouCompleteMe.git

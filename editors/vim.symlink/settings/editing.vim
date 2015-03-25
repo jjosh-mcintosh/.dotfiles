@@ -6,11 +6,11 @@ set autoindent                  " automatic indent new lines
 set smartindent
 "set nowrap                      " Turn off line wrapping
 
-set softtabstop=4               " Global soft tab width
-set shiftwidth=4                " Global whitespace shift width
-set tabstop=4                   " Global tab width
+set softtabstop=2               " Global soft tab width
+set shiftwidth=2
+set tabstop=2                   " Global tab width
 set expandtab                   " Expand tabs to spaces
-set nosmarttab
+set smarttab
 
 set formatoptions+=n            " Support for numbered/bullet lists
 set textwidth=79                " Wrap at 79 chars by default

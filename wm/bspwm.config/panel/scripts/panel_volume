@@ -18,4 +18,4 @@ if [ $mute == 'off' ]; then
     icon=$icon_mute
 fi
 
-printf "%s %3s%%%%" "$icon" "$volume"
+printf "  %s %3s%%%%" "$icon" "$volume"

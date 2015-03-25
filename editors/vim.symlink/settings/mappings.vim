@@ -7,6 +7,14 @@
 " ----------------------------------------------------------------------------
 " Mappings
 "
+" Map leader to ;
+let mapleader=";"
+"
+" buffer navigation in normal mode
+nnoremap <leader>n :bnext<CR>
+nnoremap <leader>p :bprev<CR>
+nnoremap <leader>wq :bdelete<CR>
+
 "Shortcut for NERDTreeToggle
 " (NERDTree -- Love it)
 nmap <leader>nt :NERDTreeTabsToggle <CR>
@@ -21,7 +29,7 @@ nnoremap <C-E> <Plug>IMAP_JumpForward
 cmap w!! %!sudo tee > /dev/null %
 
 "Shortcut for editing .vimrc file in a new tab
-nmap <leader>ev :tabedit $MYVIMRC<cr>
+nmap <leader>ev :edit $MYVIMRC<cr>
 
 " plugin for keeping track of structured files
 nmap <leader>tt :TagbarToggle<CR>

@@ -31,7 +31,7 @@ ${diskiograph_read /dev/sda 15}
 ${alignc}▼ Read: ${diskio_read /dev/sda}
 
 root:    ${fs_used_perc /}%  ${fs_bar /}
-/home: ${fs_used_perc /home}% ${fs_bar /home/joshua}
+/home: ${fs_used_perc /usr/local/google/home/jmcintosh}% ${fs_bar /usr/local/google/home/jmcintosh}
 
 Wear:  ${execibar 86400 sudo smartctl --attributes /dev/sda | grep Wearout|awk '{print $NF}'}
 ${alignc}SMART status: ${execi 86400 sudo smartctl -H /dev/sda | grep result | awk '{print $NF}'}

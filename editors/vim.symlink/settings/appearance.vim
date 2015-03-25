@@ -38,7 +38,7 @@ set shellslash                  " Use forward slashes everwhere
 set mousehide                   " Hide the mouse pointer while typing
 
 set laststatus=2                " Always show status line
-set showtabline=0
+set showtabline=1
 
 set list                        " Show whitespace chars
 set listchars=tab:»\ ,eol:¬,trail:·
@@ -60,5 +60,6 @@ set background=dark
 set t_Co=256
 let base16colorspace=256
 
-color wombat256mod
-let g:airline_theme="bubblegum"
+color zenburn
+let g:airline_theme="zenburn"
+let g:airline#extensions#tabline#enabled = 1

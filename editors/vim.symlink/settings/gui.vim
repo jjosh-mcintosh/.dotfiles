@@ -13,7 +13,7 @@ set guioptions+=c               " Use console dialogs
 
 " Font family and font size.
 "set guifont=Mensch\ for\ Powerline:h12
-set guifont=Inconsolata-dz\ for\ Powerline:h12
+"set guifont=Inconsolata-dz\ for\ Powerline:h12
 "set guifont=Menlo\ for\ Powerline:h12
 "set guifont=Meslo\ LG\ S:h12
 
@@ -23,5 +23,4 @@ if has('mouse')
     set mouse=a                 " Enable mouse usage (all modes) in terminal
 endif
 
-let g:airline_powerline_fonts = 1
 let g:bufferline_echo=0

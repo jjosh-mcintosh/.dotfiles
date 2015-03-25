@@ -24,14 +24,14 @@ draw_shades no
 update_interval 5
 
 TEXT
-${upspeedgraph wlan0 15}
-${alignc}▲ ${upspeed wlan0}
+${upspeedgraph eth0 15}
+${alignc}▲ ${upspeed eth0}
 
-${voffset -5}${downspeedgraph wlan0 15}
-${alignc}▼ ${downspeed wlan0}
+${voffset -5}${downspeedgraph eth0 15}
+${alignc}▼ ${downspeed eth0}
 ${stippled_hr}
-${alignc}IP: ${addr wlan0}
-${alignc}SSID: ${wireless_essid wlan0}
+${alignc}IP: ${addr eth0}
+${alignc}SSID: ${wireless_essid eth0}
 ${alignc}GW: ${gw_ip}
 ${alignc}NS: ${nameserver 0}
 ${alignc}NS: ${nameserver 1}

@@ -30,8 +30,7 @@ histfile=~/.surf/history.txt
 ffile=~/.surf/find.txt 
 
 pid=$1
-fid=$2
-xid=$3
+xid=$2
 
 dmenu="dmenu $DMENU_OPTS"
 

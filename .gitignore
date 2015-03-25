@@ -1,7 +1,14 @@
 media/beets.config/state.pickle
 media/ncmpcpp.symlink/error.log
-bin.direct/monsterwm
-bin.direct/tabbed
 editors/vim.symlink/bundle/vundle/cache/*
 editors/emacs.d.symlink/elpa
 editors/emacs.d.symlink/auto-save-list
+bin/sxhkd
+bin/bspwm
+bin/bspc
+bin/tabbed
+web/surf/cookies.txt
+wm/xmonad.symlink/xmonad.hi
+wm/xmonad.symlink/xmonad.o
+wm/xmonad.symlink/xmonad.errors
+wm/xmonad.symlink/xmonad-x86_64-linux

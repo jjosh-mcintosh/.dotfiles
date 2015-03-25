@@ -46,7 +46,7 @@ source $DOTS/systems/distro.zsh
 source "$ZSH/oh-my-zsh.sh"
 
 # Customize to your needs...
-export PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/opt/plan9/bin
+export PATH=$PATH:$DOTS/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:/opt/plan9/bin
 
 source $DOTS/aliases
 
