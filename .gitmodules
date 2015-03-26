@@ -52,3 +52,6 @@
 [submodule "editors/vim.symlink/bundle/YouCompleteMe"]
 	path = editors/vim.symlink/bundle/YouCompleteMe
 	url = https://github.com/Valloric/YouCompleteMe.git
+[submodule "editors/vim"]
+	path = editors/vim
+	url = git@github.com:joshua-mcintosh/vim-config.git
