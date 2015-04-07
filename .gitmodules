@@ -1,57 +1,12 @@
 [submodule "shells/zsh/oh-my-zsh"]
 	path = shells/zsh/oh-my-zsh
 	url = https://github.com/jjosh-mcintosh/oh-my-zsh.git
-[submodule "editors/vim.symlink/bundle/vundle"]
-	path = editors/vim.symlink/bundle/vundle
-	url = https://github.com/gmarik/vundle.git
-[submodule "editors/vim.symlink/bundle/ctrlp.vim"]
-	path = editors/vim.symlink/bundle/ctrlp.vim
-	url = https://github.com/kien/ctrlp.vim.git
-[submodule "editors/vim.symlink/bundle/nerdtree"]
-    path = editors/vim.symlink/bundle/nerdtree
-	url = https://github.com/scrooloose/nerdtree.git
-[submodule "editors/vim.symlink/bundle/tagbar"]
-    path = editors/vim.symlink/bundle/tagbar
-	url = https://github.com/majutsushi/tagbar.git
-[submodule "editors/vim.symlink/bundle/vim-colorschemes"]
-    path = editors/vim.symlink/bundle/vim-colorschemes
-	url = https://github.com/flazz/vim-colorschemes.git
-[submodule "editors/vim.symlink/bundle/vim-nerdtree-tabs"]
-    path = editors/vim.symlink/bundle/vim-nerdtree-tabs
-	url = https://github.com/jistr/vim-nerdtree-tabs.git
-[submodule "editors/vim.symlink/bundle/vim-hybrid"]
-    path = editors/vim.symlink/bundle/vim-hybrid
-	url = https://github.com/w0ng/vim-hybrid.git
-[submodule "editors/vim.symlink/bundle/tskeleton_vim"]
-	path = editors/vim.symlink/bundle/tskeleton_vim
-	url = https://github.com/tomtom/tskeleton_vim
-[submodule "editors/vim.symlink/bundle/tlib_vim"]
-	path = editors/vim.symlink/bundle/tlib_vim
-	url = https://github.com/tomtom/tlib_vim
-[submodule "editors/vim.symlink/bundle/stakeholders_vim"]
-	path = editors/vim.symlink/bundle/stakeholders_vim
-	url = https://github.com/tomtom/stakeholders_vim
-[submodule "editors/vim.symlink/bundle/supertab"]
-	path = editors/vim.symlink/bundle/supertab
-	url = https://github.com/ervandew/supertab.git
 [submodule "shells/zsh/pure"]
 	path = shells/zsh/pure
 	url = https://github.com/sindresorhus/pure.git
-[submodule "editors/vim.symlink/bundle/vim-airline"]
-	path = editors/vim.symlink/bundle/vim-airline
-	url = git://github.com/bling/vim-airline.git
-[submodule "editors/vim.symlink/bundle/vim-gitgutter"]
-	path = editors/vim.symlink/bundle/vim-gitgutter
-	url = git://github.com/airblade/vim-gitgutter.git
-[submodule "editors/vim.symlink/bundle/vim-fugitive"]
-	path = editors/vim.symlink/bundle/vim-fugitive
-	url = git://github.com/tpope/vim-fugitive.git
-[submodule "editors/vim.symlink/bundle/vim-bufferline"]
-	path = editors/vim.symlink/bundle/vim-bufferline
-	url = git://github.com/bling/vim-bufferline
-[submodule "editors/vim.symlink/bundle/YouCompleteMe"]
-	path = editors/vim.symlink/bundle/YouCompleteMe
-	url = https://github.com/Valloric/YouCompleteMe.git
-[submodule "editors/vim"]
-	path = editors/vim
-	url = git@github.com:joshua-mcintosh/vim-config.git
+[submodule "ui"]
+	path = ui
+	url = git@github.com:joshua-mcintosh/ui.git
+[submodule "editors"]
+	path = editors
+	url = git@github.com:joshua-mcintosh/editors.git
