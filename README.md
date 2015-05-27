@@ -30,4 +30,4 @@ before I'll be happy with it.
 ### conkyrc credit
 The statusbars and popups I use are adapted from
 [this fine, fine desktop](http://www.reddit.com/r/unixporn/comments/y67t2/archwmfs2the_whole_shebang_with_dzen2_popups_gif/).
-Granted, I'm using MonsterWM myself.
+Granted, I'm using ~~MonsterWM~~ xmonad myself.
