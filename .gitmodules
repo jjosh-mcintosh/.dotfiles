@@ -10,3 +10,6 @@
 [submodule "editors"]
 	path = editors
 	url = git@github.com:joshua-mcintosh/editors.git
+[submodule "git/git-hub"]
+	path = git/git-hub
+	url = https://github.com/ingydotnet/git-hub
