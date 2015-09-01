@@ -6,10 +6,10 @@
 	url = https://github.com/sindresorhus/pure.git
 [submodule "ui"]
 	path = ui
-	url = git@github.com:joshua-mcintosh/ui.git
+	url = https://github.com/joshua-mcintosh/ui.git
 [submodule "editors"]
 	path = editors
-	url = git@github.com:joshua-mcintosh/editors.git
+	url = https://github.com/joshua-mcintosh/editors.git
 [submodule "git/git-hub"]
 	path = git/git-hub
 	url = https://github.com/ingydotnet/git-hub
