@@ -10,11 +10,11 @@ symlink-bash:
 
 symlink-zsh: symlink-oh-my-zsh
 	@[ ! -h ${HOME}/.zshrc ] && \
-		ln -s $(realpath zsh/zshrc) ${HOME}/.zshrc \
+		ln -s $(realpath zsh/zshrc.symlink) ${HOME}/.zshrc \
 		|| echo "Link .zshrc exists";
-	@[ ! -h ${HOME}/.zsh_profile ] && \
-		ln -s $(realpath zsh/zsh_profile) ${HOME}/.zsh_profile\
-		|| echo "Link .zsh_profile exists";
+	#@[ ! -h ${HOME}/.zsh_profile ] && \
+	#	ln -s $(realpath zsh/zsh_profile) ${HOME}/.zsh_profile\
+	#	|| echo "Link .zsh_profile exists";
 
 symlink-oh-my-zsh:
 	@[ ! -h ${HOME}/.oh-my-zsh] && \
