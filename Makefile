@@ -1,4 +1,4 @@
-install: install-vim install-ui
+install: install-vim install-ui install-shell
 
 clean: clean-vim
 
