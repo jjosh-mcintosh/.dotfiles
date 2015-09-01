@@ -1,4 +1,4 @@
-install: symlink-bash symlink-fasd symlink-zsh
+install: symlink-bash symlink-zsh
 
 symlink-bash:
 	@[ ! -h ${HOME}/.bashrc ] && \
@@ -20,4 +20,3 @@ symlink-oh-my-zsh:
 	@[ ! -h ${HOME}/.oh-my-zsh] && \
 		ln -s $(realpath zsh/oh-my-zsh) ${HOME}/.oh-my-zsh \
 		|| echo "Link .oh-my-zsh exists";
-
