@@ -15,3 +15,7 @@ install-ui:
 	@cd ui; \
 	git submodule update --init; \
 	make install;
+
+install-shell:
+	@cd shells; \
+	make install;
