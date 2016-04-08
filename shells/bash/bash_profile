@@ -1,37 +1,9 @@
-if [ -d "$HOME/bin" ]
-then
-		export PATH="$HOME/bin:$PATH";
-fi
+[[ -d $HOME/bin ]] && export PATH=$HOME/bin:$PATH
 
-if [[ `uname` = 'Linux' ]]; then
-  if pidof mpd 2>&1 >/dev/null; then
-    noop 2>/dev/null;
-  else
-    mpd .config/mpd/mpd.conf 2>/dev/null &
-  fi
-fi
-
-# On the chopping block
-export PATH="/home/tex/texlive/2010/bin/x86_64-linux:/usr/local/games:/opt/go/bin:$PATH"
-export MANPATH="/home/tex/texlive/2010/texmf/doc/man:$HOME/.local/share/man:$MANPATH"
-export INFOPATH="/home/tex/texlive/2010/texmf/doc/info:$INFOPATH"
-
-export EDITOR="vim"
-export BROWSER="surf"
 # Almost decidedly wrong - will investigate
-export TERMINAL="urxvtc"
+export TERMINAL="urxvt"
+export EDITOR="vim"
 export GOPATH="$HOME/build/go/";
 export WORKLOGDIR="$HOME/.worklog";
-
-
-if [ -f $HOME/.bashrc ]; then
-		. ~/.bashrc;
-fi
-
-if [ -d /etc/bash_completion.d ]; then
-		for file in $(ls /etc/bash_completion.d)
-		do
-				. /etc/bash_completion.d/$file;
-		done
-fi
-
+export LEDGER_FILE=$HOME/ledger.dat
+export TIMELOG=$HOME/ledger.dat
